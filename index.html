@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp</title>
+    <style></style>
+</head>
+
+<body>
+    <button class="js-btn">Click Me</button>
+    <h3></h3>
+    <a>Google Map Location</a>
+    <script>
+        const btn = document.querySelector('.js-btn');
+        const head = document.querySelector('h3');
+        const gmaps = document.querySelector('a');
+        btn.addEventListener('click', () => {
+        navigator.geolocation.getCurrentPosition(position => {
+            const {latitude,longitude} = position.coords;
+            head.textContent=`Your Coordinates: ${latitude},${longitude}`;
+            gmaps.href=`https://www.google.com/maps/place/${latitude}+${longitude}`;
+        })});
+    </script>
+</body>
+
+</html>
